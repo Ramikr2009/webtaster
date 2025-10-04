@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>webtaster — فحص روابط وملفات مشبوهة</title>
+  <link rel="stylesheet" href="styles.css" />
+  </head>
+<body dir="rtl">
+  <header class="site-header">
+    <div class="logo">
+      <h1><span class="neon">web</span><span class="accent">taster</span></h1>
+      <p class="tag">فحص عميق مختص بالأمن السيبراني — آمن وسهل الاستخدام</p>
+    </div>
+    <nav class="top-nav">
+      <button class="tab-btn active" data-target="scan-url" aria-controls="scan-url">فحص رابط</button>
+      <button class="tab-btn" data-target="scan-file" aria-controls="scan-file">فحص ملف</button>
+      <button class="tab-btn" data-target="scan-domain" aria-controls="scan-domain">فحص دومين / IP</button>
+      <button class="tab-btn" data-target="about" aria-controls="about">حول</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="scan-url" class="panel active" role="tabpanel" aria-labelledby="tab-btn-url">
+      <h2>فحص رابط</h2>
+      <p class="muted">ألصق الرابط المشبوه هنا ليتم فحصه بواسطة فحوصات سلوكية وهيورستيك (قواعد استدلالية).</p>
+      <div class="form-row">
+        <input id="url-input" placeholder="https://example.com/..." type="url" />
+        <button id="scan-url-btn" class="primary">ابدأ الفحص</button>
+      </div>
+      <pre id="url-results" class="results"></pre>
+    </section>
+
+    <section id="scan-file" class="panel" role="tabpanel" aria-labelledby="tab-btn-file">
+      <h2>فحص ملف</h2>
+      <p class="muted">ارفع ملفاً وسيحسب الموقع تجزئة *SHA-256* لتقوم أنت بمقارنتها مع قواعد بيانات الفيروسات أو رفعها لمواقع فحص ملفات مشهورة.</p>
+      <div class="form-row">
+        <input id="file-input" type="file" />
+        <button id="scan-file-btn" class="primary">احسب SHA-256</button>
+      </div>
+      <pre id="file-results" class="results"></pre>
+    </section>
+
+    <section id="scan-domain" class="panel" role="tabpanel" aria-labelledby="tab-btn-domain">
+      <h2>فحص دومين / IP</h2>
+      <p class="muted">تحقق من عناصر بسيطة: طول الدومين، وجود أرقام/حروف مشبوهة، TLD مشبوه، وما إلى ذلك.</p>
+      <div class="form-row">
+        <input id="domain-input" placeholder="example.com أو 1.2.3.4" type="text" />
+        <button id="scan-domain-btn" class="primary">تحقق</button>
+      </div>
+      <pre id="domain-results" class="results"></pre>
+    </section>
+
+    <section id="about" class="panel" role="tabpanel" aria-labelledby="tab-btn-about">
+      <h2>عن webtaster</h2>
+      <p>
+        webtaster هو واجهة فحص مبدئية مصممة لأغراض تحليل هيورستيك (قواعد استدلالية). *لا يقوم الموقع بتنفيذ اختبارات اختراق أو مسح شبكات.* بل يفحص مدخلاتك محلياً باستخدام قدرات المتصفح ويعطي توصيات لاحقة.
+      </p>
+      <ul>
+        <li>*فحص الروابط:* يتحقق من الطول، وجود اختصارات، حروف خادعة (Punycode)، استخدام HTTPS، وغير ذلك.</li>
+        <li>*فحص الملفات:* يحسب تجزئة SHA-256 (يمكنك رفع النتيجة إلى خدمات مثل VirusTotal يدوياً).</li>
+        <li>*فحص الدومين/IP:* فحوصات هيورستيك بسيطة لتحديد العلامات المشبوهة.</li>
+      </ul>
+    </section>
+
+    <aside class="contact-card">
+      <h3>التواصل مع الدعم</h3>
+      <p class="muted">يمكنك إرسال الأمثلة أو الروابط للاختبار (بشكل آمن) عبر وسائل التواصل أدناه:</p>
+      <ul>
+        <li>*الهاتف:* <a href="tel:+9647741698544" aria-label="رقم الهاتف">07741698544</a></li>
+        <li>*البريد:* <a href="mailto:rkr445468@gmail.com" aria-label="عنوان البريد الإلكتروني">rkr445468@gmail.com</a></li>
+      </ul>
+      <p class="small muted">نحن نجيب عادةً داخل ساعات العمل.</p>
+    </aside>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>المطوّر: *Rami-Alshurifi*</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
